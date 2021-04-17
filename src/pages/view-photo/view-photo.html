@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>view-photo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <agm-map align="center" [zoom]="10" style = "height: 150px; width: 100%">
+      <ion-item *ngFor="let datos of arreglo | async">
+        <agm-marker 
+          [label]="datos.titulo"
+          [latitude]="datos.lat" 
+          [longitude]="datos.lng">
+          <agm-info-window>
+            <h2>{{datos.titulo}}</h2>
+            <br>
+            <img src="{{datos.urlimagen}}" >
+          </agm-info-window>
+        </agm-marker>
+      </ion-item>
+    </agm-map>
+  </ion-item>
+
+  <ion-list>
+    <ion-item>
+      <button ion-item *ngFor="let photo of arreglo | async" (click)="getPhoto(photo.createDate)">
+        <ion-avatar item-start>
+          <img src="{{photo.urlimagen}}">
+        </ion-avatar>
+        {{ photo.titulo }}
+      </button>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

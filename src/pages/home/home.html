@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-navbar color="primary">
+      <ion-buttons end>
+        <button ion-button (click)="addPhoto()">
+          <ion-avatar>
+            <ion-icon name = "camera"></ion-icon>
+          </ion-avatar>
+        </button>
+      </ion-buttons>
+
+    <ion-title>
+      Mis Notas
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="addNote()">
+        <ion-avatar>
+          <ion-icon name = "add"></ion-icon>
+        </ion-avatar>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let note of notes | async" (click)="getNote(note.createDate)">
+      <span class="date">
+        {{ note.date }}
+      </span>
+      {{ note.title }}
+    </button>
+  </ion-list>
+  <button ion-button (click)="viewPhoto()">Ver Fotos</button>
+</ion-content>

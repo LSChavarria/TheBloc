@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>view-one-photo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        {{ photo.titulo }}
+      </ion-card-title>
+      <img src="{{photo.urlimagen}}">
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <button ion-button color="danger" block (click)="deleteOnePhoto(photo.createDate)">
+    Eliminar Foto
+  </button>
+</ion-footer>

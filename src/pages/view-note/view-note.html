@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Detalles</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>
+        {{ note.title }}
+      </ion-card-title>
+      <div class="note-date"> {{ note.date }} </div>
+      <hr/>
+      <div> {{ note.content }} </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <button ion-button color="secondary" block (click)="getNote(note.createDate)">
+    Editar Nota
+  </button>
+  <button ion-button color="danger" block (click)="deleteNote(note.createDate)">
+    Eliminar Nota
+  </button>
+</ion-footer>
+  

@@ -1,0 +1,25 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Editar Nota</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="formGroup" (ngSubmit)="saveNote(formGroup.value)">
+<ion-item>
+  <ion-label>Fecha</ion-label>
+  <ion-datetime displayFormat="DD/MM/YYYY" formControlName="date" required>  </ion-datetime>
+</ion-item>
+<ion-item>
+      <ion-label>Titulo</ion-label>
+      <ion-input value="{{note.title}}" type="text" name="title" formControlName="title" required> </ion-input>
+      <div class="alert" *ngIf="!formGroup.controls['title'].valid && formGroup.controls['title'].touched">{{ titleAlert}} </div>
+</ion-item>
+  <ion-item>
+        <ion-label>Nota</ion-label>
+        <ion-textarea value="{{note.content}}" type="text" rows="8" name="content" maxLength="2000"  formControlName="content" required> </ion-textarea>
+        <div class="alert" *ngIf="!formGroup.controls['content'].valid && formGroup.controls['content'].touched">{{ contentAlert}} </div>
+</ion-item>
+      <button ion-button type="submit" [disabled]="!formGroup.valid"> Editar </button>
+    </form>
+</ion-content>
